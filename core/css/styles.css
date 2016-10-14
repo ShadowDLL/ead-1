@@ -1,0 +1,28 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.row{
+	margin: 1em auto 1em;
+}
+
+.footer {
+    background: #111;
+    color: #666;
+    text-align: center;
+    padding: 1em;
+    font-size: 80%;
+}
+
+.hr {
+  height: 2px; color: #ed1d61;background-color: #ed1d61;
+    
+}
+
+td, th {
+    //border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
