@@ -26,6 +26,29 @@ function get_instrutores(){
     
     
 }
+function get_instrutor($id){
+    try{
+        $conexao = conn_mysql();
+        $SQLSelect = 'SELECT * FROM instrutor WHERE id = ?';
+   
+        //prepara a execução da sentença
+        $operacao = $conexao->prepare($SQLSelect);	
+        $operacao->execute(array($id));
+
+        //captura TODOS os resultados obtidos
+        $resultados = $operacao->fetchAll(PDO::FETCH_ASSOC);
+
+        //libera a conexão (dados já foram capturados)
+        $conexao=null;
+
+        return $resultados;
+    }
+    catch(PDOException $excep){
+        echo "Erro!: " . $excep->getMessage() . "\n";
+        $conexao=null;
+        die();
+    }
+}
 
 function get_categorias(){
     try{
@@ -50,6 +73,7 @@ function get_categorias(){
     
     
 }
+
 function aulas(){
     try{
         $conexao = conn_mysql();

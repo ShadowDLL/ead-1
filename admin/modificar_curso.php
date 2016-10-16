@@ -30,7 +30,7 @@ $cursos = cursos();
                 foreach ($cursos as $curso){
         ?>
         <tr>
-            <td><a href="./curso_edit.php?curso=<?php echo $curso['id']; ?>" colspan="2"> <?php echo utf8_decode($curso['nome']);?></a></td> 
+            <td colspan="2"><a href="./curso_edit.php?curso=<?php echo $curso['id']; ?>"> <?php echo utf8_decode($curso['nome']);?></a></td> 
             <td><a href="./curso_edit.php?curso=<?php echo $curso['id']; ?>"><span class="glyphicon glyphicon-pencil"> Modificar</span></a></td>
         </tr>
         <?php

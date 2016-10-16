@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once("../core/conf/confBD.php");
-    
+   
     if(isset($_POST["login"])){
         $log = utf8_encode(htmlspecialchars($_POST["login"]));
         $senha = utf8_encode(htmlspecialchars($_POST["passwd"]));
@@ -15,11 +15,11 @@
     $conexao = conn_mysql();
     
     $SQLSelect = 'SELECT * FROM usuario INNER JOIN tipo_usuario on tipo_usuario.id=usuario.tipo_id '
-               . 'WHERE password=MD5(?) AND login=? AND tipo_usuario.nome=?';
+               . 'WHERE password=MD5(?) AND login=? AND usuario.tipo_id=?';
     $operacao = $conexao->prepare($SQLSelect);					  
-    $pesquisar = $operacao->execute(array($senha, $log, 'administrador'));
+    $pesquisar = $operacao->execute(array($senha, $log, '2'));
     $resultados = $operacao->fetchAll();
-
+    
     $conexao = null;
 
     if (count($resultados)!=1){	
