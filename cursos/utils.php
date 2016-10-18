@@ -10,7 +10,9 @@ function cursos(){
         die();
     }
     
-    $SQLSelect = 'SELECT curso.id, curso.nome, curso.categoria_id, curso.descricao, curso.image, instrutor.nome as instrutor FROM curso inner join instrutor on instrutor.id = curso.instrutor_id order by curso.nome';
+    $SQLSelect = 'SELECT curso.id, curso.nome, curso.categoria_id, categoria.nome as categoria_nome, curso.descricao, curso.image, instrutor.nome as instrutor '
+               . 'FROM curso INNER JOIN instrutor ON instrutor.id = curso.instrutor_id '
+               . 'INNER JOIN categoria ON categoria.id = curso.categoria_id ORDER BY curso.nome';
    
     //prepara a execução da sentença
     $operacao = $conexao->prepare($SQLSelect);	
@@ -37,8 +39,9 @@ function detalhes($curso_id){
     $curso_id = utf8_encode(htmlspecialchars($curso_id));
  
     //$SQLSelect = 'SELECT * FROM curso where id = ?';
-    $SQLSelect = 'SELECT curso.id, curso.image, curso.nome, curso.categoria_id, curso.descricao, curso.sobre, instrutor.nome AS instrutor 
+    $SQLSelect = 'SELECT curso.id as id, curso.image, curso.nome, curso.categoria_id, categoria.nome as categoria_nome, curso.descricao, curso.sobre, instrutor.nome AS instrutor 
                   FROM curso INNER JOIN instrutor on instrutor.id = curso.instrutor_id 
+                  INNER JOIN categoria ON categoria.id = curso.categoria_id
                   WHERE curso.id = ?';
     //prepara a execução da sentença
     $operacao = $conexao->prepare($SQLSelect);	

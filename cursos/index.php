@@ -18,6 +18,7 @@ include_once ("utils.php");
                     <h3 class="text-muted"><a href="../cursos/detalhes.php?curso=<?php echo utf8_decode($curso['id']);?>" title=""> <?php echo utf8_decode($curso['nome']);?></a></h3>
                     <p><?php echo utf8_decode($curso['descricao']) ?></p>
                     <p>Instrutor: <?php echo utf8_decode($curso['instrutor']) ?></p>
+                    <p>Categoria:<?php echo utf8_encode($curso['categoria_nome']) ?></p>
                 </div>
             
 <?php

@@ -28,7 +28,7 @@
         </p>
     </div>
     <div class="col-sm-4">
-        <img src="http://placehold.it/400x250" class="img-responsive" style="width:100%" alt="Vídeo aulas e materiais digitais.">
+        <img src="../core/images/aulas.gif" class="img-responsive" style="width:100%" alt="Vídeo aulas e materiais digitais.">
     </div>
 </div>
 <!--	
@@ -47,7 +47,7 @@
 -->	
 <div class="row">
     <div class="col-sm-4">
-        <img src="http://placehold.it/400x250" class="img-responsive" style="width:100%" alt="Vídeo aulas e materiais digitais.">
+        <img src="../core/images/exercicios.jpg" class="img-responsive" style="width:100%" alt="Vídeo aulas e materiais digitais.">
     </div>
 
     <div class="col-sm-8">
