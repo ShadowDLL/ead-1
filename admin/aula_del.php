@@ -21,7 +21,7 @@
 
     $conexao=null;
     
-    echo "<h1>Aula removida com sucesso</h1>\n";
+    echo "<h1>Unidade removida com sucesso</h1>\n";
     echo "<p><a href=\"./modificar_aula.php\">Voltar para a listagem de aulas.</a></p>\n";
     
     include_once("../core/templates/rodape.php");

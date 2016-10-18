@@ -100,12 +100,12 @@
                          if($aula['nome']==$unidade_nome){
                         
                 ?>
-                <option selected value="<?php echo $aula['id'];?>"><?php echo utf8_encode($aula['nome']." - ".$aula['curso']);?></option>
+                <option selected value="<?php echo $aula['id'];?>"><?php echo utf8_decode($aula['nome']." - ".$aula['curso']);?></option>
                 <?php
                          }
                          else{
                 ?>
-                <option value="<?php echo $aula['id'];?>"><?php echo utf8_encode($aula['nome']." - ".$aula['curso']);?></option>
+                <option value="<?php echo $aula['id'];?>"><?php echo utf8_decode($aula['nome']." - ".$aula['curso']);?></option>
                 <?php
                          }
                     }

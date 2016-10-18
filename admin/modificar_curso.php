@@ -1,4 +1,5 @@
 <?php
+
 include_once("../core/templates/cabecalho_adm.php");
 include_once("utils.php");
 testa_autenticacao();

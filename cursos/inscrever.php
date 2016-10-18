@@ -37,7 +37,7 @@ try{
     }
     else {
         include_once("../core/templates/cabecalho.php");
-        echo "<h1>Voce ja esta inscrito no curso.</h1>\n";
+        echo "<h1>Voce já está inscrito no curso.</h1>\n";
         $arr = $operacao->errorInfo();
         $erro = utf8_decode($arr[2]);
         //echo "<p>$erro</p>";						

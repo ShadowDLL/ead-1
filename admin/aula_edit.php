@@ -2,15 +2,9 @@
     include_once("../core/templates/cabecalho_adm.php");
     include_once("utils.php");
     testa_autenticacao();
-    
-    
-    //print_r($_SESSION);
-    $unidade = detalhes_unidade_curso($_GET['aula']);
-    //print_r($unidade); die;
-    $cursos = cursos();
-    
-    
    
+    $unidade = detalhes_unidade_curso($_GET['aula']);
+    $cursos = cursos(); 
 ?>
 <div class="col-sm-14">
     <ul class="breadcrumb">

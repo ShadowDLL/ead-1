@@ -88,7 +88,7 @@ function gera_menu_cursos($usuario_id){
     
     if($cursos){
         foreach($cursos as $curso){
-            echo "<li><a data-toggle=\"collapse\" href=\"#".str_replace(" ","",$curso['nome'])."\"><span class=\"glyphicon glyphicon-book\"> ".$curso['nome']."</span></a></li>";
+            echo "<li><a data-toggle=\"collapse\" href=\"#".str_replace(" ","",$curso['nome'])."\"><span class=\"glyphicon glyphicon-book\"> ".utf8_decode($curso['nome'])."</span></a></li>";
             echo "<div id=\"".str_replace(" ","",$curso['nome'])."\" class=\"panel-collapse collapse\">";
             echo "<div class=\"panel-body\">";
             echo "<a href=\"../cursos/curso.php?id=".$curso['curso_id']."&nome=".$curso['nome']."\"><i class=\"glyphicon glyphicon-facetime-video\"></i> Aulas e Materiais</a>";
@@ -110,11 +110,11 @@ function lista_cursos_inscritos($usuario_id){
     if($cursos){
         foreach($cursos as $curso){
             echo "<div class=\"well\">";
-            echo "<h3>".$curso['nome']."</h3>";
-            echo $curso['descricao'];
-            echo "<p>Instrutor: ".$curso['instrutor']."</p>";
+            echo "<h3>".utf8_decode($curso['nome'])."</h3>";
+            echo utf8_decode($curso['descricao']);
+            echo "<p>Instrutor: ".utf8_decode($curso['instrutor'])."</p>";
             echo "<div class=\"btn-group-sm\">";
-            echo "<a href=\"../cursos/curso.php?id=".$curso['curso_id']."&nome=".$curso['curso_nome']."\" class=\"btn btn-info\"> Acessar</a>"; 
+            echo "<a href=\"../cursos/curso.php?id=".$curso['curso_id']."&nome=".utf8_decode($curso['curso_nome'])."\" class=\"btn btn-info\"> Acessar</a>"; 
             echo "<a href=\"../cursos/desinscrever.php?curso=".$curso['curso_id']."\" class=\"btn btn-danger\">Cancelar</a>";
             echo "</div>";
             echo "</div>";
@@ -603,9 +603,9 @@ function lista_cursos_inscritos_admin($usuario_id){
     if($cursos){
         foreach($cursos as $curso){
             echo "<div class=\"well\">";
-            echo "<h3>".$curso['nome']."</h3>";
-            echo $curso['descricao'];
-            echo "<p>Instrutor: ".$curso['instrutor']."</p>";
+            echo "<h3>".utf8_decode($curso['nome'])."</h3>";
+            echo utf8_decode($curso['descricao']);
+            echo "<p>Instrutor: ".utf8_decode($curso['instrutor'])."</p>";
             echo "<div class=\"btn-group-sm\">";
             echo "</div>";
             lista_desempenho_curso($usuario_id, $curso['curso_id']);

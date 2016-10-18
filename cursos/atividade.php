@@ -45,7 +45,7 @@ catch(Exception $excep){
 </div>
 
 <div class="col-sm-9">
-    <h3><?php echo $avaliacao_nome;?></h3>
+    <h3><?php echo utf8_decode($avaliacao_nome);?></h3>
     <?php
     if($atividade_realizada_bool > 0){
        $acertos = acima_70_por_cento_unidade($usuario_id, $_GET['unidade_id']) * 100;

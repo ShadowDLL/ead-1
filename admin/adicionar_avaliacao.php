@@ -21,7 +21,7 @@
     <div class="form-group">
             <label for="name" class="col-sm-2 control-label">Nome</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name"  pattern="[a-zA-Z 0-9]+" required>
+                <input type="text" class="form-control" id="name" name="name"  pattern="[A-Za-zÀ-ú 0-9]+" required>
             </div>
     </div>
     
@@ -33,7 +33,7 @@
                     foreach ($aulas as $aula){
                         
                 ?>
-                        <option value="<?php echo $aula['id'];?>"><?php echo utf8_encode($aula['nome']." - ".$aula['curso']);?></option>
+                        <option value="<?php echo $aula['id'];?>"><?php echo utf8_decode($aula['nome']." - ".$aula['curso']);?></option>
                 <?php
                         
                     }

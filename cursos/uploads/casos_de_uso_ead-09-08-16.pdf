@@ -1,5 +1,0 @@
-SELECT * FROM material_complementar WHERE id = ?<br />
-<b>Notice</b>:  Undefined index: tamanho in <b>C:\xampp\htdocs\ead\cursos\download.php</b> on line <b>38</b><br />
-<br />
-<b>Notice</b>:  Undefined index: dados_documento in <b>C:\xampp\htdocs\ead\cursos\download.php</b> on line <b>39</b><br />
-	

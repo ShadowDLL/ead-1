@@ -10,7 +10,7 @@
         $sobre = utf8_encode(htmlspecialchars($_POST['sobre']));
         
         $instrutor = utf8_encode(htmlspecialchars($_POST['instrutor']));
-        print_r($_FILES["file"]);
+        
         if(isset ($_FILES["file"])) {
             if($_FILES["file"]["tmp_name"]!= NULL) {
                 $conteudo = file_get_contents($_FILES["file"]["tmp_name"]); 
@@ -26,7 +26,6 @@
                 if($conteudo != NULL && ($tipo == "jpeg" || $tipo == "png" || $tipo == "bmp" || $tipo == "gif")) {
 
                     $conexao = conn_mysql();
-                    print_r($_POST);
                     $SQLInsert = 'INSERT INTO curso (nome, categoria_id, descricao, sobre, instrutor_id, image) VALUES(?,?,?,?,?,?)';
                     
 
@@ -64,7 +63,7 @@
             }
             else{
                 $conexao = conn_mysql();
-                print_r($_POST);
+              
                 $SQLInsert = 'INSERT INTO curso (nome, categoria_id, descricao, sobre, instrutor_id) VALUES(?,?,?,?,?)';
 
 

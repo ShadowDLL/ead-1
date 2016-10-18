@@ -19,7 +19,7 @@
 
         if($atualiza){
             include_once("../core/templates/cabecalho_adm.php");
-            echo "<h1>Aula cadastrada com sucesso.</h1>\n";
+            echo "<h1>Unidade cadastrada com sucesso.</h1>\n";
             echo "<p class=\"lead\"><a href=\"./modificar_aula.php\">Ir para a listagem de aulas</a></p>\n";
             include_once("../core/templates/rodape.php");
         }

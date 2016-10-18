@@ -16,7 +16,7 @@
         $atualiza = $operacao->execute();
         if($atualiza){
             echo "<h1>Questão removida com sucesso</h1>\n";
-            echo "<p><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior.</a></p>\n";
+            echo "<p><a href=\"javascript:window.history.go(-1);self.location.reload();\">Voltar para a página anterior.</a></p>\n";
         }
         
     }

@@ -5,7 +5,6 @@ require_once("../core/conf/confBD.php");
 session_start();
 testa_autenticacao();
 
-print_r($_SESSION);
 $curso_id = $_GET['curso'];
 
 
@@ -14,7 +13,6 @@ try{
 
     $usuario_id = utf8_encode(htmlspecialchars($_SESSION['id']));
     $curso_id = utf8_encode(htmlspecialchars($_GET['curso']));
-
 
     $SQLInsert = 'DELETE FROM inscrito WHERE usuario_id = ? AND curso_id = ?';
     
@@ -33,7 +31,7 @@ try{
     if ($inserir){
 
             include_once("../core/templates/cabecalho.php");
-            echo "<h1>Voce se desinscreveu no curso com sucesso.</h1>\n";
+            echo "<h1>Você se desinscreveu no curso com sucesso.</h1>\n";
             echo "<p class=\"lead\"><a href=\"../conta/painel.php\">Painel</a></p>\n";
             include_once("../core/templates/rodape.php");
     }

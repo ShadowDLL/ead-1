@@ -53,7 +53,7 @@ try{
     
     include_once("../core/templates/cabecalho_adm.php");
     echo "<h1>Questão editada com sucesso.</h1>\n";
-    echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-2)\">Voltar para a tela de edição da avaliação.</a></p>\n";
+    echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-2);self.location.reload();\">Voltar para a tela de edição da avaliação.</a></p>\n";
     include_once("../core/templates/rodape.php");
 }
 catch (PDOException $e){

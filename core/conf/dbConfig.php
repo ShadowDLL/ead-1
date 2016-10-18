@@ -1,8 +1,11 @@
 <?php
 //Database configuration
 $dbHost = 'localhost';
+//$dbHost = 'mysql.hostinger.com.br';
 $dbUsername = 'root';
+//$dbUsername = 'stv';
 $dbPassword = '';
+//$dbPassword = 'pucminas';
 $dbName = 'stv';
 
 //Connect with the database

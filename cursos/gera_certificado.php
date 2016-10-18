@@ -18,9 +18,9 @@ $curso = detalhes($curso_id);
             <br><br>
             <span style="font-size:25px"><i>Certificamos que o(a) estudante</i></span>
             <br><br>
-            <span style="font-size:30px"><b><?php echo $_SESSION['usuario'] ?></b></span><br/><br/>
+            <span style="font-size:30px"><b><?php echo utf8_decode($_SESSION['usuario']) ?></b></span><br/><br/>
             <span style="font-size:25px"><i>completou o curso</i></span> <br/><br/>
-            <span style="font-size:30px"><?php echo $curso[0]['nome'] ?></span> <br/><br/>
+            <span style="font-size:30px"><?php echo utf8_decode($curso[0]['nome']) ?></span> <br/><br/>
             <span style="font-size:20px">com êxito.</span> <br/><br/><br/> <?php echo strftime('%d de %B de %Y', strtotime('today'));?>
         </div>
     </div>
