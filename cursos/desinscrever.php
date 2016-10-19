@@ -31,7 +31,7 @@ try{
     if ($inserir){
 
             include_once("../core/templates/cabecalho.php");
-            echo "<h1>Você se desinscreveu no curso com sucesso.</h1>\n";
+            echo "<h1>Você cancelou a inscrição no curso com sucesso.</h1>\n";
             echo "<p class=\"lead\"><a href=\"../conta/painel.php\">Painel</a></p>\n";
             include_once("../core/templates/rodape.php");
     }

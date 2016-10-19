@@ -117,7 +117,7 @@ function lista_cursos_inscritos($usuario_id){
             echo utf8_decode($curso['descricao']);
             echo "<p>Instrutor: ".utf8_decode($curso['instrutor'])."</p>";
             echo "<div class=\"btn-group-sm\">";
-            echo "<a href=\"../cursos/curso.php?id=".$curso['curso_id']."&nome=".utf8_decode($curso['curso_nome'])."\" class=\"btn btn-info\"> Acessar</a>"; 
+            echo "<a href=\"../cursos/curso.php?id=".$curso['curso_id']."&nome=".$curso['curso_nome']."\" class=\"btn btn-info\"> Acessar</a>"; 
             echo "<a href=\"../cursos/desinscrever.php?curso=".$curso['curso_id']."\" class=\"btn btn-danger\">Cancelar</a>";
             echo "</div>";
             echo "</div>";

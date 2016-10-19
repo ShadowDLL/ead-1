@@ -46,7 +46,7 @@
                       
                         
                 ?>
-                        <option value="<?php echo $instrutor['id'];?>"><?php echo $instrutor['nome'];?></option>
+                <option value="<?php echo $instrutor['id'];?>"><?php echo utf8_decode($instrutor['nome']);?></option>
                 <?php
                         
                     }
