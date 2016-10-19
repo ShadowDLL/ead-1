@@ -62,7 +62,7 @@
                     foreach ($categorias as $categoria){
                         
                 ?>
-                        <option value="<?php echo $categoria['id'];?>"><?php echo utf8_encode($categoria['nome']);?></option>
+                        <option value="<?php echo $categoria['id'];?>"><?php echo utf8_decode($categoria['nome']);?></option>
                 <?php
                         
                     }

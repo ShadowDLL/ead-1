@@ -69,7 +69,7 @@ function processRating(val, attrVal){
     
         <ul class="breadcrumb">
             <li><a href="../conta/painel.php">Meu Painel</a></li>
-            <li><a href="../cursos/curso.php?id=<?php echo $_GET['id']?>&nome=<?php echo $_GET['nome']; ?>"><?php echo $_GET['nome']; ?></a></li>
+            <li><a href="../cursos/curso.php?id=<?php echo $_GET['id']?>&nome=<?php echo $_GET['nome']; ?>"><?php echo utf8_decode($_GET['nome']); ?></a></li>
 
         </ul>
     

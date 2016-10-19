@@ -23,8 +23,6 @@ function get_instrutores(){
         $conexao=null;
         die();
     }
-    
-    
 }
 function get_instrutor($id){
     try{
@@ -72,6 +70,30 @@ function get_categorias(){
     }
     
     
+}
+
+function get_categoria($id){
+    try{
+        $conexao = conn_mysql();
+        $SQLSelect = 'SELECT * FROM categoria WHERE id = ?';
+   
+        //prepara a execução da sentença
+        $operacao = $conexao->prepare($SQLSelect);	
+        $operacao->execute(array($id));
+
+        //captura TODOS os resultados obtidos
+        $resultados = $operacao->fetchAll(PDO::FETCH_ASSOC);
+
+        //libera a conexão (dados já foram capturados)
+        $conexao=null;
+
+        return $resultados;
+    }
+    catch(PDOException $excep){
+        echo "Erro!: " . $excep->getMessage() . "\n";
+        $conexao=null;
+        die();
+    }
 }
 
 function aulas(){
