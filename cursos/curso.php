@@ -1,6 +1,7 @@
 <?php
 include_once("../core/templates/cabecalho.php");
 include_once("../cursos/utils.php");
+error_reporting(~E_NOTICE);
 testa_autenticacao();
 
 $comentario = retorna_comentario($_GET['id'],$_SESSION['id']);
