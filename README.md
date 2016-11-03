@@ -6,4 +6,4 @@ senha:
 
 Para a aplicação:
 usuário:admin
-senha:1234
+senha:admin
