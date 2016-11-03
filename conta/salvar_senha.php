@@ -19,7 +19,7 @@ try{
         if(($nova_senha!=$confirmacao_senha)||(strlen($nova_senha)<4)||(strlen($nova_senha)>8)){
             include_once("../core/templates/cabecalho.php");
             echo "<h1>Erro na operacao.</h1>\n";
-            echo "<p>As senhas nao se conferem ou possuem tamanhos menores que quatro caracteres ou maiores que oito.</p>";
+            echo "<p>As senhas não se conferem ou possuem tamanhos menores que quatro caracteres ou maiores que oito.</p>";
             echo "<p><a href=\"./editar_senha.php\">Retornar</a></p>\n";
             include_once("../core/templates/rodape.php");
             die();

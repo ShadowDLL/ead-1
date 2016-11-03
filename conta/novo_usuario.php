@@ -20,8 +20,8 @@
 
         if(($senha!=$senhaConf)||(strlen($senha)<4)||(strlen($senha)>8)){
             include_once("../core/templates/cabecalho.php");
-            echo "<h1>Erro na operacao.</h1>\n";
-            echo "<p>As senhas nao se conferem ou possuem tamanhos menores que quatro caracteres ou maiores que oito.</p>";
+            echo "<h1>Erro na operação.</h1>\n";
+            echo "<p>As senhas não se conferem ou possuem tamanhos menores que quatro caracteres ou maiores que oito.</p>";
             echo "<p><a href=\"./registro.php\">Retornar</a></p>\n";
             include_once("../core/templates/rodape.php");
             die();
