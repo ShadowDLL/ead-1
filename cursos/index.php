@@ -19,6 +19,7 @@ include_once ("utils.php");
                     <p><?php echo utf8_decode($curso['descricao']) ?></p>
                     <p>Instrutor: <?php echo utf8_decode($curso['instrutor']) ?></p>
                     <p>Categoria:<?php echo utf8_decode($curso['categoria_nome']) ?></p>
+                    <p>Palavras-Chave:<?php echo utf8_decode(get_palavras_chave_curso($curso['id']));?></p>
                 </div>
             
 <?php

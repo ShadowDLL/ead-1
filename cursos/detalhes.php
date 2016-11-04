@@ -16,6 +16,7 @@ $curso_id = $_GET['curso'];
         </h2>
         <h4>Instrutor: <?php echo utf8_decode(detalhes($curso_id)[0]['instrutor']); ?></h4>
         <h4>Categoria: <?php echo utf8_decode(detalhes($curso_id)[0]['categoria_nome']); ?></h4>
+        <h4>Palavras-Chave: <?php echo utf8_decode(get_palavras_chave_curso($curso_id));?></h4>
         <p>
             <a href="./inscrever.php?curso=<?php echo detalhes($curso_id)[0]['id'];?>" class="btn-info btn-lg">Inscreva-se</a>
         </p>

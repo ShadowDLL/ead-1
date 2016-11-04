@@ -7,6 +7,7 @@
     //print_r($curso[0]['instrutor']);
     $instrutores = get_instrutores();
     $categorias = get_categorias();
+    $palavras_chave = get_palavras_chave_curso($_GET['curso']);
 ?>
 <div class="col-sm-14">
     <ul class="breadcrumb">
@@ -77,6 +78,12 @@
                 ?>
             </select>
         </div>
+    </div>
+    <div class="form-group">
+            <label for="keywords" class="col-sm-2 control-label">Palavras-Chave</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="keywords" name="keywords" value="<?php echo utf8_decode($palavras_chave);?>" required>
+            </div>
     </div>
     <div class="form-group">
             <label for="file" class="col-sm-2 control-label">Imagem</label>

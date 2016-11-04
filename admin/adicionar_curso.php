@@ -71,6 +71,12 @@
         </div>
     </div>
     <div class="form-group">
+            <label for="keywords" class="col-sm-2 control-label">Palavras-Chave</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="keywords" name="keywords" required>
+            </div>
+    </div>
+    <div class="form-group">
             <label for="file" class="col-sm-2 control-label">Imagem</label>
             <div class="col-sm-10">
                 <input type="file" name="file" />

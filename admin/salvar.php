@@ -10,8 +10,9 @@
         $sobre = utf8_encode(htmlspecialchars($_POST['sobre']));
         
         $instrutor = utf8_encode(htmlspecialchars($_POST['instrutor']));
+        $palavras_chave = split(" ",utf8_encode(htmlspecialchars($_POST['keywords'])));
         $id = utf8_encode(htmlspecialchars($_POST['id_curso']));
-        print_r(isset ($_FILES["file"]));
+       
         if(isset ($_FILES["file"])) {
             if($_FILES["file"]["tmp_name"]!= NULL) {
                 $conteudo = file_get_contents($_FILES["file"]["tmp_name"]); 
@@ -34,9 +35,39 @@
                     $operacao = $conexao->prepare($SQLInsert);					  
                     $atualiza = $operacao->execute(array($nome, $categoria, $descricao, $sobre, $instrutor, bin2hex($conteudo),$id));
 
-                    $linha_afetada = $operacao->rowCount();
-
                     if($atualiza){
+                        /**************/
+                        $SQLInsert = 'DELETE FROM palavra_curso WHERE curso_id = ?';
+                        $operacao = $conexao->prepare($SQLInsert);					  
+                        $atualiza = $operacao->execute(array($id));
+                        foreach ($palavras_chave as $palavra){
+                            $palavra = trim($palavra);
+
+                            $SQLInsert = 'INSERT INTO palavra_chave(nome) VALUES (?)';
+                            $operacao = $conexao->prepare($SQLInsert);					  
+                            $atualiza = $operacao->execute(array($palavra));
+
+                            if($atualiza){
+                                $palavra_chave_id = $conexao->lastInsertId();
+
+                                $SQLInsert = 'INSERT INTO palavra_curso(curso_id, keyword_id) VALUES (?,?)';
+                                $operacao = $conexao->prepare($SQLInsert);
+                                $atualiza = $operacao->execute(array($id, $palavra_chave_id));
+                            }
+                            else{
+                                //Palavra chave já existe e necessário descobrir qual é o id dela
+                                $SQLSelect = 'SELECT id FROM palavra_chave WHERE nome LIKE ?';
+                                $operacao = $conexao->prepare($SQLSelect);	
+                                $operacao->execute(array("%$palavra%"));
+
+                                $resultados = $operacao->fetchAll(PDO::FETCH_ASSOC);
+                                $SQLInsert = 'INSERT INTO palavra_curso(curso_id, keyword_id) VALUES (?,?)';
+                                $operacao = $conexao->prepare($SQLInsert);
+                                $atualiza = $operacao->execute(array($id, $resultados[0]['id']));
+                            }
+                        }
+                    /*************/
+                        
                         include_once("../core/templates/cabecalho_adm.php");
                         echo "<h1>Dados alterados com sucesso.</h1>\n";
                         echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
@@ -73,6 +104,38 @@
                 $atualiza = $operacao->execute(array($nome, $categoria, $descricao, $sobre, $instrutor, $id));
 
                 if($atualiza){
+                    $SQLInsert = 'DELETE FROM palavra_curso WHERE curso_id = ?';
+                    $operacao = $conexao->prepare($SQLInsert);					  
+                    $atualiza = $operacao->execute(array($id));
+                    /**************/
+                    foreach ($palavras_chave as $palavra){
+                        $palavra = trim($palavra);
+
+                        $SQLInsert = 'INSERT INTO palavra_chave(nome) VALUES (?)';
+                        $operacao = $conexao->prepare($SQLInsert);					  
+                        $atualiza = $operacao->execute(array($palavra));
+
+                        if($atualiza){
+                            $palavra_chave_id = $conexao->lastInsertId();
+
+                            $SQLInsert = 'INSERT INTO palavra_curso(curso_id, keyword_id) VALUES (?,?)';
+                            $operacao = $conexao->prepare($SQLInsert);
+                            $atualiza = $operacao->execute(array($id, $palavra_chave_id));
+                        }
+                        else{
+                            //Palavra chave já existe e necessário descobrir qual é o id dela
+                            $SQLSelect = 'SELECT id FROM palavra_chave WHERE nome LIKE ?';
+                            $operacao = $conexao->prepare($SQLSelect);	
+                            $operacao->execute(array("%$palavra%"));
+
+                            $resultados = $operacao->fetchAll(PDO::FETCH_ASSOC);
+                            $SQLInsert = 'INSERT INTO palavra_curso(curso_id, keyword_id) VALUES (?,?)';
+                            $operacao = $conexao->prepare($SQLInsert);
+                            $atualiza = $operacao->execute(array($id, $resultados[0]['id']));
+                        }
+                    }
+                    /*************/
+                    
                     include_once("../core/templates/cabecalho_adm.php");
                     echo "<h1>Curso alterado com sucesso.</h1>\n";
                     echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1);self.location.reload();\">Voltar para a página anterior</a></p>\n";

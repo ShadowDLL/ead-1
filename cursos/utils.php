@@ -27,6 +27,38 @@ function cursos(){
     return $resultados;
 }
 
+function get_palavras_chave_curso($curso_id){
+    try{
+        $lista_palavras = "";
+        $conexao = conn_mysql();
+        $SQLSelect = 'SELECT palavra_chave.nome FROM palavra_chave INNER JOIN palavra_curso '
+                   . 'ON palavra_chave.id = palavra_curso.keyword_id WHERE curso_id = ?';
+   
+        //prepara a execução da sentença
+        $operacao = $conexao->prepare($SQLSelect);	
+        $operacao->execute(array($curso_id));
+
+        //captura TODOS os resultados obtidos
+        $resultados = $operacao->fetchAll(PDO::FETCH_ASSOC);
+
+        //libera a conexão (dados já foram capturados)
+        $conexao=null;
+        
+        foreach ($resultados as $resultado){
+            $lista_palavras .= $resultado['nome']. " ";
+            
+        }
+        
+        
+        return rtrim($lista_palavras);
+    }
+    catch(PDOException $excep){
+        echo "Erro!: " . $excep->getMessage() . "\n";
+        $conexao=null;
+        die();
+    }
+}
+
 function detalhes($curso_id){
     try{
         $conexao = conn_mysql();
