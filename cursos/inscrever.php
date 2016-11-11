@@ -41,7 +41,7 @@ try{
         $arr = $operacao->errorInfo();
         $erro = utf8_decode($arr[2]);
         //echo "<p>$erro</p>";						
-        echo "<p><a href=\"../cursos/index.php\">Retornar para cursos.</a></p>\n";
+        echo "<p><a href=\"../conta/painel.php\">Ir para o Painel.</a></p>\n";
         include_once("../core/templates/rodape.php");
     }
 }
