@@ -80,7 +80,7 @@
                         $arr = $operacao->errorInfo();
                         $erro = utf8_decode($arr[2]);
                         echo "<p>$erro</p>";						
-                        echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1);self.location.reload();)\">Voltar para a página anterior</a></p>\n";
+                        echo "<p class=\"lead\"><a href=\"./curso_edit.php?curso=$id\">Voltar para a página anterior</a></p>\n";
                         include_once("../core/templates/rodape.php");
                     }
                     
@@ -90,7 +90,7 @@
                 else{
                     include_once("../core/templates/cabecalho_adm.php");
                     echo "<h1>Falha na abertura do arquivo.</h1>\n";
-                    echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1);self.location.reload();\">Voltar para a página anterior</a></p>\n";
+                    echo "<p class=\"lead\"><a href=\"./curso_edit.php?curso=$id\">Voltar para a página anterior</a></p>\n";
                     include_once("../core/templates/rodape.php");   
                 }
                 
@@ -151,7 +151,7 @@
                     $arr = $operacao->errorInfo();
                     $erro = utf8_decode($arr[2]);
                     echo "<p>$erro</p>";						
-                    echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1);self.location.reload();\">Voltar para a página anterior</a></p>\n";
+                    echo "<p class=\"lead\"><a href=\"./curso_edit.php?curso=$id\">Voltar para a página anterior</a></p>\n";
                     include_once("../core/templates/rodape.php");
                 }
 

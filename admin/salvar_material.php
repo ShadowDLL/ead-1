@@ -38,7 +38,7 @@ try{
             $arr = $operacao->errorInfo();
             $erro = utf8_decode($arr[2]);
             echo "<p>$erro</p>";						
-            echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1);\">Voltar para a página anterior</a></p>\n";
+            echo "<p class=\"lead\"><a href=\"./material_edit.php?material=$id\">Voltar para a página anterior</a></p>\n";
             include_once("../core/templates/rodape.php");
         }   
     }
@@ -66,7 +66,7 @@ try{
         if ($_FILES['file']['error'] != 0) {
             include_once("../core/templates/cabecalho_adm.php");
             echo "<h1>Não foi possível fazer o upload, erro:" . $_UP['erros'][$_FILES['arquivo']['error']] . "</h1>\n";						
-            echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a pagina anterior</a></p>\n";
+            echo "<p class=\"lead\"><a href=\"./material_edit.php?material=$id\">Voltar para a pagina anterior</a></p>\n";
             include_once("../core/templates/rodape.php");
             exit; // Para a execução do script
         }
@@ -77,7 +77,7 @@ try{
         if (array_search($extensao, $_UP['extensoes']) === false) {
             include_once("../core/templates/cabecalho_adm.php");
             echo "Por favor, envie arquivos com as seguintes extensões: pdf, doc ou ppt";						
-            echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a pagina anterior</a></p>\n";
+            echo "<p class=\"lead\"><a href=\"./material_edit.php?material=$id\">Voltar para a pagina anterior</a></p>\n";
             include_once("../core/templates/rodape.php");
             exit;
         }
@@ -86,7 +86,7 @@ try{
         if ($_UP['tamanho'] < $_FILES['file']['size']) {
             include_once("../core/templates/cabecalho_adm.php");
             echo "O arquivo enviado é muito grande, envie arquivos de até 5Mb.";						
-            echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a pagina anterior</a></p>\n";
+            echo "<p class=\"lead\"><a href=\"./material_edit.php?material=$id\">Voltar para a pagina anterior</a></p>\n";
             include_once("../core/templates/rodape.php");
             exit;
         }
@@ -128,7 +128,7 @@ try{
                 $arr = $operacao->errorInfo();
                 $erro = utf8_decode($arr[2]);
                 echo "<p>$erro</p>";						
-                echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
+                echo "<p class=\"lead\"><a href=\"./material_edit.php?material=$id\">Voltar para a página anterior</a></p>\n";
                 include_once("../core/templates/rodape.php");
             }
         } 
@@ -136,7 +136,7 @@ try{
             // Não foi possível fazer o upload, provavelmente a pasta está incorreta
             include_once("../core/templates/cabecalho_adm.php");
             echo "Não foi possível enviar o arquivo, tente novamente";						
-            echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a pagina anterior</a></p>\n";
+            echo "<p class=\"lead\"><a href=\"./material_edit.php?material=$id\">Voltar para a pagina anterior</a></p>\n";
             include_once("../core/templates/rodape.php");
             exit;
         }  
