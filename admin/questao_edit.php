@@ -159,6 +159,11 @@
     </div>
     <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
+                <input type="hidden" name="atividade" value="<?php echo $avaliacao;?>">
+            </div>
+    </div>
+    <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
                     <input id="submit" name="submit" type="submit" value="Salvar" class="btn btn-primary">
             </div>
     </div>

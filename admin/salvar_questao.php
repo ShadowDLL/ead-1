@@ -9,7 +9,7 @@ try{
     $pergunta = utf8_encode(htmlspecialchars($_POST['pergunta']));
     $alternativas = $_POST['alternativa'];
     $resposta = utf8_encode(htmlspecialchars($_POST['resposta']));
-    
+    $atividade_id = utf8_encode(htmlspecialchars($_POST['atividade']));
   
     $conexao = conn_mysql();
     $conexao->beginTransaction();
@@ -24,7 +24,7 @@ try{
         $arr = $operacao->errorInfo();
         $erro = utf8_decode($arr[2]);
         echo "<p>$erro</p>";						
-        echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
+        echo "<p class=\"lead\"><a href=\"./questao_edit.php?questao=$pergunta_id&atividade=$atividade_id\">Voltar para a página anterior</a></p>\n";
         include_once("../core/templates/rodape.php");
         $conexao->rollBack();
         $conexao = null;
@@ -42,7 +42,7 @@ try{
         $arr = $operacao->errorInfo();
         $erro = utf8_decode($arr[2]);
         echo "<p>$erro</p>";						
-        echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
+        echo "<p class=\"lead\"><a href=\"./questao_edit.php?questao=$pergunta_id&atividade=$atividade_id\">Voltar para a página anterior</a></p>\n";
         include_once("../core/templates/rodape.php");
         $conexao->rollBack();
         $conexao = null;
@@ -61,7 +61,7 @@ try{
             $arr = $operacao->errorInfo();
             $erro = utf8_decode($arr[2]);
             echo "<p>$erro</p>";						
-            echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
+            echo "<p class=\"lead\"><a href=\"./questao_edit.php?questao=$pergunta_id&atividade=$atividade_id\">Voltar para a página anterior</a></p>\n";
             include_once("../core/templates/rodape.php");
             $conexao->rollBack();
             $conexao = null;
@@ -81,7 +81,7 @@ try{
                 $arr = $operacao->errorInfo();
                 $erro = utf8_decode($arr[2]);
                 echo "<p>$erro</p>";						
-                echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
+                echo "<p class=\"lead\"><a href=\"./questao_edit.php?questao=$pergunta_id&atividade=$atividade_id\">Voltar para a página anterior</a></p>\n";
                 include_once("../core/templates/rodape.php");
                 $conexao->rollBack();
                 $conexao = null;
@@ -96,7 +96,7 @@ try{
     
     include_once("../core/templates/cabecalho_adm.php");
     echo "<h1>Questão editada com sucesso.</h1>\n";
-    echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-2);self.location.reload();\">Voltar para a tela de edição da avaliação.</a></p>\n";
+    echo "<p class=\"lead\"><a href=\"./avaliacao_edit.php?avaliacao=$atividade_id\">Voltar para a tela de edição da avaliação.</a></p>\n";
     include_once("../core/templates/rodape.php");
 }
 catch (PDOException $e){
@@ -108,7 +108,7 @@ catch (PDOException $e){
     $erro = utf8_decode($arr[2]);
     echo "<p>$erro</p>";
     echo "<br>Erro!: " . $e->getMessage() . "<br>";
-    echo "<p class=\"lead\"><a href=\"javascript:window.history.go(-1)\">Voltar para a página anterior</a></p>\n";
+    echo "<p class=\"lead\"><a href=\"./questao_edit.php?questao=$pergunta_id&atividade=$atividade_id\">Voltar para a página anterior</a></p>\n";
     include_once("../core/templates/rodape.php");
     
     $conexao = null;
